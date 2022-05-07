@@ -68,8 +68,8 @@ plt.title("驱动力-行驶阻力平衡图", fontdict={'size': 20})
 plt.xlabel("ua(km/s)", fontdict={'size': 16})
 plt.ylabel("Ft(N)", fontdict={'size': 16})
 
-# plt.xlim(xmin=0,xmax=120)
+plt.xlim(xmin=0,xmax=120)
 plt.legend(loc='upper right')
+res=plt.ginput(1)
+print("汽车最高车速为%dkm/h"%(res[0][0]))
 plt.show()
-
-# TODO:输出最大车速
