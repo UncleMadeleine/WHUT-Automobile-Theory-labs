@@ -2,6 +2,16 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.interpolate import make_interp_spline
+import matplotlib
+
+# 用于解决中文字体乱码问题
+matplotlib.rcParams['font.family'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+
+
+
+
 n=[]
 for i in range(600,4001,1):
     n.append(i)
@@ -59,7 +69,6 @@ for i in range(len(n)):
     Q5.append(b5[i]*Pe5[i]/(1.02*pg*ua5[i]))
 plt.plot(ua4, Q4, label="4", linewidth=1)
 plt.plot(ua5, Q5, label="5", linewidth=1)
-# TODO:中文问题
 plt.title("最高档与次高档等速百公里油耗曲线")
 plt.xlabel("ua(km/h)")
 plt.ylabel("百公里油耗(L/100km)")

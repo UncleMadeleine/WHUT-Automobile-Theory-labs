@@ -1,6 +1,13 @@
 
 from math import *
 import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+# 用于解决中文字体乱码问题
+mpl.rcParams['font.family'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+
 # 定义常量
 m=3880
 g=9.8
@@ -63,7 +70,6 @@ plt.plot(ua4, Ft4, label="Ft4", linewidth=1)
 plt.plot(ua5, Ft5, label="Ft5", linewidth=1)
 plt.plot(ua5, Ft5, label="Ft5", linewidth=1)
 plt.plot(ua, Fz, label="Ff+Fw", linewidth=1)
-# TODO:中文字符不能正常输出
 plt.title("驱动力-行驶阻力平衡图", fontdict={'size': 20})
 plt.xlabel("ua(km/s)", fontdict={'size': 16})
 plt.ylabel("Ft(N)", fontdict={'size': 16})

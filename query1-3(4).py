@@ -1,5 +1,15 @@
 from math import *
 import matplotlib.pyplot as plt
+import matplotlib
+
+# 用于解决中文字体乱码问题
+matplotlib.rcParams['font.family'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+
+
+
+
 # 定义常量
 m = 3880
 g = 9.8
@@ -34,7 +44,6 @@ uae=99.0
 while uas<=uae:
     ua.append(uas)
     uas+=0.01
-# print(len(ua))
 N=len(ua)
 n=0
 Tq=0
@@ -77,11 +86,9 @@ for i in range(N):
         ans+=delta[j]
     t.append(ans)
 plt.plot(t, ua)
-
-# TODO:中文字符不能正常输出
 plt.title("汽车二档原地换挡起步加速时间曲线", fontdict={'size': 20})
-plt.xlabel("t(s)", fontdict={'size': 16})
-plt.ylabel("ua(km/h)", fontdict={'size': 16})
+plt.xlabel("时间t(s)", fontdict={'size': 16})
+plt.ylabel("速度ua(km/h)", fontdict={'size': 16})
 
 plt.xlim(xmin=0, xmax=80)
 plt.ylim(ymin=0, ymax=100)

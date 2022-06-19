@@ -1,5 +1,13 @@
 from math import *
 import matplotlib.pyplot as plt
+import matplotlib
+import numpy as np
+
+# 用于解决中文字体乱码问题
+matplotlib.rcParams['font.family'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+
 # 定义常量
 m = 3880
 g = 9.8
@@ -93,9 +101,12 @@ plt.plot(ua3,ad3,label="1/a3")
 plt.plot(ua4,ad4,label="1/a4")
 plt.plot(ua5,ad5,label="1/a5")
 plt.axis([0,99,0,10])
-# TODO:中文不能正常输出
 plt.title("汽车的加速度倒数取线", fontdict={'size': 20})
 plt.xlabel("ua(km/s)", fontdict={'size': 16})
 plt.ylabel("1/a", fontdict={'size': 16})
 plt.legend(loc='upper right')
+a=max(np.array(a1))
+af = asin(max(np.array(Ft1)-Ff-np.array(Fw1))/G)
+C= tan(af)/(a/L+hg*tan(af)/L)
+print("假设后轮驱动，最大爬坡度相应的附着率为%.4lf" % (C))
 plt.show()

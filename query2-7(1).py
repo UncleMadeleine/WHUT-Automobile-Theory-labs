@@ -1,5 +1,14 @@
 from math import *
 import matplotlib.pyplot as plt
+import matplotlib
+
+# 用于解决中文字体乱码问题
+matplotlib.rcParams['font.family'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+
+
+
 n=[]
 for i in range(600,4001,10):
     n.append(i)
@@ -75,8 +84,6 @@ plt.plot(ua4, Pe4, label="4", linewidth=1)
 plt.plot(ua5, Pe5, label="5", linewidth=1)
 plt.plot(ua, Pe0, label="(Pw+Pf)/et", linewidth=1)
 plt.plot(ua, Pe, label="Pe", linewidth=1)
-
-# TODO:中文字符不能正常输出
 plt.title("汽车功率平衡图")
 plt.axis([0,119,0,100])
 plt.xlabel("ua(km/h)")

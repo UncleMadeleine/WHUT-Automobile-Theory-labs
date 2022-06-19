@@ -1,5 +1,12 @@
 from math import *
 import matplotlib.pyplot as plt
+import matplotlib
+
+# 用于解决中文字体乱码问题
+matplotlib.rcParams['font.family'] = 'SimHei'
+plt.rcParams['axes.unicode_minus'] = False
+
+
 
 
 # 空载时参数
@@ -37,13 +44,12 @@ for i in z:
     fai_rk.append((1-betak)*i*Lk/(ak-i*hgk))
     fai_rm.append((1-betam)*i*Lm/(am-i*hgm))
 plt.plot(fai,z,label="z",linewidth=1)
-plt.plot(fai,fai_fk,label="front-empty",linewidth=1)
-plt.plot(fai,fai_fm,label="front-full",linewidth=1)
-plt.plot(fai,fai_rk,label="rear-empty",linewidth=1)
-plt.plot(fai,fai_rm,label="rear-full",linewidth=1)
-# TODO:中文字符不能正常输出
+plt.plot(fai,fai_fk,label="空载前轴",linewidth=1)
+plt.plot(fai,fai_fm,label="满载前轴",linewidth=1)
+plt.plot(fai,fai_rk,label="空载后轴",linewidth=1)
+plt.plot(fai,fai_rm,label="满载后轴",linewidth=1)
 plt.title("利用附着系数与制动强度关系曲线")
-plt.xlabel("(z/g)")
+plt.xlabel("制动强度(z/g)")
 plt.ylabel("利用附着系数")
 plt.legend(loc='upper left')
 # plt.show()
@@ -63,11 +69,10 @@ for i in range(1,len(z)):
     Efm.append(z[i]/fai_fm[i]*100)
     Erk.append(z[i]/fai_rk[i]*100)
     Erm.append(z[i]/fai_rm[i]*100)
-plt.plot(fai_fk[1:],Efk,label="front-empty",linewidth=1)
-plt.plot(fai_fm[1:],Efm,label="front-full",linewidth=1)
-plt.plot(fai_rk[1:],Erk,label="rear-empty",linewidth=1)
-plt.plot(fai_rm[1:],Erm,label="rear-full",linewidth=1)
-# TODO:中文问题
+plt.plot(fai_fk[1:],Efk,label="空载前轴",linewidth=1)
+plt.plot(fai_fm[1:],Efm,label="满载前轴",linewidth=1)
+plt.plot(fai_rk[1:],Erk,label="空载后轴",linewidth=1)
+plt.plot(fai_rm[1:],Erm,label="满载后轴",linewidth=1)
 plt.title("前后制动效率曲线")
 plt.xlabel("附着系数")
 plt.ylabel("制动效率")
